@@ -7,12 +7,11 @@ namespace ConsoleTry
     {
         public string poi(string p1, string p2)
         {
-            if(p1=="goo"&&p2=="paa" ||
-               p1=="thoki"&&p2=="paa")
-            return "p1";
+            if(p1=="goo"&& p2=="paa")
+            return "p2";
             else
             {
-                return "p2";
+                return "p1";
             }
         }
 
