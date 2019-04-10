@@ -1,92 +1,92 @@
-����
+準備
 Program.cs
-	namespace�݂̂ɂ���i�N���X���Ȃ���ԁj
+	namespaceのみにする（クラスがない状態）
 
 UnitTest1.cs
-	UnitTest1�N���X�݂̂ɂ���i���g�̃��\�b�h���Ȃ���ԁj
+	UnitTest1クラスのみにする（中身のメソッドがない状態）
 
-���菇[����]�ƂȂ��Ă���s�����s���Ă���
+★手順[数字]となっている行を実行していく
 
-�菇
---�P�߂�red�t�F�[�Y�J�n
+手順
+--１つめのredフェーズ開始
 
-�菇1		UnitTest1�N���X��goo_tai_thoki_p1_win���\�b�h��ǉ�����
-�菇2		var j=new Janken();������
-		���R���p�C���G���[�ɂȂ�
+手順1		UnitTest1クラスにgoo_tai_thoki_p1_winメソッドを追加する
+手順2		var j=new Janken();を書く
+		→コンパイルエラーになる
 
-�菇3		Program.cs��Janken�N���X��ǉ�����
-�菇4		��̃��C�����\�b�h��ǉ�����
-		���R���p�C���G���[��������
+手順3		Program.csにJankenクラスを追加する
+手順4		空のメインメソッドを追加する
+		→コンパイルエラーが消える
 
-�菇5		goo_tai_thoki_p1_win���\�b�h��var res= j.poi("goo", "thoki");��ǉ�����
-		���R���p�C���G���[�ɂȂ�
+手順5		goo_tai_thoki_p1_winメソッドでvar res= j.poi("goo", "thoki");を追加する
+		→コンパイルエラーになる
 
-�菇6		Janken�N���X��poi(object o1,object o2){}���\�b�h��ǉ�����
-�菇7		poi���\�b�h��return "";��ǉ�����
-�菇8		goo_tai_thoki_p1_win���\�b�h��Assert.True(res == "p1");��ǉ�����
-�菇9		�e�X�g�����s����
-		���e�X�g�����s����
+手順6		Jankenクラスにpoi(object o1,object o2){}メソッドを追加する
+手順7		poiメソッドにreturn "";を追加する
+手順8		goo_tai_thoki_p1_winメソッドにAssert.True(res == "p1");を追加する
+手順9		テストを実行する
+		→テストが失敗する
 
---�P�߂�red�t�F�[�Y�I��
---�P�߂�green�t�F�[�Y�J�n
+--１つめのredフェーズ終了
+--１つめのgreenフェーズ開始
 
-�菇10	poi���\�b�h�̖߂�l��"p1"�ɂ���
-�菇11	�e�X�g�����s����
-		���e�X�g���ʂ�
+手順10	poiメソッドの戻り値を"p1"にする
+手順11	テストを実行する
+		→テストが通る
 
---�P�߂�green�t�F�[�Y�I��
---�P�߂�refact�t�F�[�Y�J�n
+--１つめのgreenフェーズ終了
+--１つめのrefactフェーズ開始
 
-�菇12	poi���\�b�h�̈�����string�ɂ���
-�菇13	�e�X�g�����s����
-		���e�X�g���ʂ�
+手順12	poiメソッドの引数をstringにする
+手順13	テストを実行する
+		→テストが通る
 
---�P�߂�refact�t�F�[�Y�I��
---�Q�߂�red�t�F�[�Y�J�n
+--１つめのrefactフェーズ終了
+--２つめのredフェーズ開始
 
-�菇14	UnitTest1�N���X��paa_tai_goo_p1_win���\�b�h��ǉ�����
-�菇15	���g��goo_tai_thoki_p1_win���\�b�h���R�s�y����
-�菇16	j.poi�̈�����"paa","goo"�ɂ���
-�菇17	�e�X�g�����s����
-		���e�X�g���ʂ�
+手順14	UnitTest1クラスにpaa_tai_goo_p1_winメソッドを追加する
+手順15	中身はgoo_tai_thoki_p1_winメソッドをコピペする
+手順16	j.poiの引数を"paa","goo"にする
+手順17	テストを実行する
+		→テストが通る
 
---�Q�߂�red�t�F�[�Y�I���@�Ɠ�����green�t�F�[�Y�I��
---�Q�߂�refact�t�F�[�Y�J�n
+--２つめのredフェーズ終了　と同時にgreenフェーズ終了
+--２つめのrefactフェーズ開始
 
-�菇18	var j = new Janken();�������o�[�֊i�グ����
-�菇19	�e�X�g�����s����
-		���e�X�g���ʂ�
+手順18	var j = new Janken();をメンバーへ格上げする
+手順19	テストを実行する
+		→テストが通る
 
---�Q�߂�refact�t�F�[�Y�I��
---�R�߂�red�t�F�[�Y�J�n
+--２つめのrefactフェーズ終了
+--３つめのredフェーズ開始
 
-�菇20	UnitTest1�N���X��goo_tai_paa_p2_win���\�b�h��ǉ�����
-�菇21	���g��paa_tai_goo_p1_win���\�b�h���R�s�y����
-�菇22	j.poi�̈�����"goo","paa"�ɂ���
-�菇23	�e�X�g�����s����
-		���e�X�g�����s����
+手順20	UnitTest1クラスにgoo_tai_paa_p2_winメソッドを追加する
+手順21	中身はpaa_tai_goo_p1_winメソッドをコピペする
+手順22	j.poiの引数を"goo","paa"にする
+手順23	テストを実行する
+		→テストが失敗する
 
---�R�߂�red�t�F�[�Y�I��
---�R�߂�green�t�F�[�Y�J�n
+--３つめのredフェーズ終了
+--３つめのgreenフェーズ開始
 
-�菇24	poi���\�b�h��
+手順24	poiメソッドに
 			if(p1=="goo") return "p2"; else return "p1";
-		��ǉ�����
-�菇25	�e�X�g�����s����
-		���P�߂̃e�X�g�����s����
+		を追加する
+手順25	テストを実行する
+		→１つめのテストが失敗する
 
-�菇26	poi���\�b�h��if������p1=="goo" && p2=="paa"�ɂ���
-�菇27	�e�X�g�����s����
-		�����ׂẴe�X�g���ʂ�
+手順26	poiメソッドのif条件をp1=="goo" && p2=="paa"にする
+手順27	テストを実行する
+		→すべてのテストが通る
 
---�R�߂�green�t�F�[�Y�I��
+--３つめのgreenフェーズ終了
 
 ------------------------------------------------------------------
-�|�C���g
-	�菇19�ɂāApoi���\�b�h�̎��������炩�ɑ���Ȃ��̂Ƀe�X�g���ʂ�
-	���e�X�g������ĂȂ�
-	���e�X�g��ǉ�����
+ポイント
+	手順19にて、poiメソッドの実装が明らかに足りないのにテストが通る
+	→テストが足りてない
+	→テストを追加する
 
 
-�Q�ƂƂ��肪�Ƃ�
+以下を書き起こしただけ　すごく良い
 droidkaigi 2019  https://www.youtube.com/watch?v=1eK_RBdqFMo
